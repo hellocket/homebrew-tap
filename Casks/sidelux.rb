@@ -14,9 +14,10 @@ cask "sidelux" do
 
   # SideLux isn't notarized by Apple. Clear the download quarantine so it opens
   # without the "can't verify" warning (the caveats below say so).
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/SideLux.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:         ["-dr", "com.apple.quarantine", "{{appdir}}/SideLux.app"],
+        must_succeed: false
   end
 
   uninstall quit: "io.github.hellocket.sidelux"
