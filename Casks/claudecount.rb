@@ -1,6 +1,6 @@
 cask "claudecount" do
-  version "1.0.1"
-  sha256 "9c30bd25846334035f458ec6a5c921a5f74fb0df916396c9b6119a0abf2f2330"
+  version "1.0.2"
+  sha256 "889fefdde1fcf8da12a0b8ddc9f4436b621c73a2dd52fb3cc086f36a79e56f8c"
 
   url "https://github.com/hellocket/ClaudeCount/releases/download/v#{version}/ClaudeCount.zip"
   name "ClaudeCount"
