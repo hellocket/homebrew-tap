@@ -1,6 +1,6 @@
 cask "claudecount" do
-  version "1.0.2"
-  sha256 "889fefdde1fcf8da12a0b8ddc9f4436b621c73a2dd52fb3cc086f36a79e56f8c"
+  version "1.0.3"
+  sha256 "5b8057cf313476fcc870946dc8d66981fe2a53d2e7db03094656bae348ce59b3"
 
   url "https://github.com/hellocket/ClaudeCount/releases/download/v#{version}/ClaudeCount.zip"
   name "ClaudeCount"
@@ -11,14 +11,22 @@ cask "claudecount" do
 
   app "ClaudeCount/ClaudeCount.app"
 
-  uninstall launchctl: "com.local.claudecount",
-            quit:      "com.local.claudecount"
+  uninstall launchctl: [
+              "io.github.hellocket.claudecount",
+              "com.local.claudecount",
+            ],
+            quit:      [
+              "io.github.hellocket.claudecount",
+              "com.local.claudecount",
+            ]
 
   zap trash: [
     "~/Library/Caches/ClaudeCount",
     "~/Library/LaunchAgents/com.local.claudecount.plist",
+    "~/Library/LaunchAgents/io.github.hellocket.claudecount.plist",
     "~/Library/Logs/ClaudeCount.log",
     "~/Library/Preferences/com.local.claudecount.plist",
+    "~/Library/Preferences/io.github.hellocket.claudecount.plist",
   ]
 
   caveats <<~EOS
